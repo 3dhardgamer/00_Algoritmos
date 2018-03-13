@@ -69,7 +69,7 @@ int main() {
         }
       }
 
-      printf("%d", vencedor);
+      printf("%d\n", vencedor);
       break;
     }
 
