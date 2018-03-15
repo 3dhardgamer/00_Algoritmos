@@ -1,5 +1,18 @@
 #include <stdio.h>
 
+
+int fibonacci(int num) {
+  if (num == 0) {
+    return 1;
+  }
+  if (num == 1) {
+    return 1;
+  }
+
+  return fibonacci(num - 1) + fibonacci(num - 2);
+}
+
+
 int main() {
   int exercicio;
 
@@ -149,7 +162,15 @@ int main() {
     }
 
     // Exercicio 6
-    case 6: {}
+    case 6: {
+      int k;
+      scanf("%d", &k);
+
+      int num_sequencia;
+      num_sequencia = fibonacci(k - 1);
+      printf("%d\n", num_sequencia);
+      break;
+    }
 
     // Exercicio 7
     case 7: {}
