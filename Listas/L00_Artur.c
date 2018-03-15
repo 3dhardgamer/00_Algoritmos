@@ -112,10 +112,41 @@ int main() {
     }
 
     // Exercicio 4
-    case 4: {}
+    case 4: {
+      int n;
+      scanf("%d", &n);
+
+      float notas[100];
+      char alunos[100];
+      int aluno;
+
+      for(int i = 0; i < n; i++) {
+        scanf("%f", &notas[i]);
+       // scanf("%s", alunos[i]);
+       // gets(alunos[i]);
+      }
+
+      scanf("%d", &aluno);
+      if(notas[aluno] >= 7.0) {
+        printf("%s Aprovado\n", &alunos[aluno]);
+      }
+
+      break;
+    }
 
     // Exercicio 5
-    case 5: {}
+    case 5: {
+      int n;
+      scanf("%d", &n);
+
+      int fatorial = 1;
+      for(int i = n; i > 0; i--) {
+        fatorial *= i;
+      }
+
+      printf("%d\n", fatorial);
+      break;
+    }
 
     // Exercicio 6
     case 6: {}
