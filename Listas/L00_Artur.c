@@ -224,10 +224,52 @@ int main() {
     }
 
     // Exercicio 8
-    case 8: {}
+    case 8: {
+      int A;
+      int B;
+      int aux;
+
+      scanf("%d", &A);
+      scanf("%d", &B);
+
+      aux = A;
+      A = B;
+      B = aux;
+
+      printf("%d %d\n", A, B);
+      break;
+    }
 
     // Exercicio 9
-    case 9: {}
+    case 9: {
+      int n;
+      scanf("%d", &n);
+
+      int vetor[n];
+      for(int i = 0; i < n; i++) {
+        scanf("%d", &vetor[i]);
+      }
+
+      int aux;
+      for(int i = 0; i < n; i++) {
+        printf("%d\n", vetor[i]);
+        for(int j = 0; j < n - 1; j++) {
+          if(vetor[j] > vetor[j + 1]) {
+            printf("%d", vetor[j]);
+            aux = vetor[j];
+            vetor[j] = vetor[j + 1];
+            vetor[j + 1] = aux;
+          }
+        }
+      }
+
+      for(int i = 0; i < n; i++) {
+        printf("%d ", vetor[i]);
+      }
+      printf("\n");
+
+    break;
+    }
 
     default:
       printf("Opcao invalida, escolha um exercicio entre 0 - 9, por favor!\n");
