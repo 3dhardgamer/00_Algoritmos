@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 
 int fibonacci(int num) {
@@ -174,25 +175,53 @@ int main() {
 
     // Exercicio 7
     case 7: {
-			int partidas;
-			scanf("%d", &partidas);
+      int partidas;
+      scanf("%d", &partidas);
 
-			int maria = 0;
-			int joao = 0;
-			char jogada_maria;
-			char jogada_joao;
+      int maria = 0;
+      int joao = 0;
+      char jogada_maria;
+      char jogada_joao;
 
-			for(int i = 0; i < partidas; i++) {
-				scanf("%c", &jogada_maria);
-				scanf("%c", &jogada_joao);
-				
-				if(jogada_maria == "t" && jogada_joao == "p") {
-					maria += 1;
-				} else if(jogada_maria == "p" && jogada_joao == "")
-			}
+      for(int i = 1; i <= partidas; i++) {
+        printf("Partida %d\n", i);
 
-			break;
-		}
+        //jogada_maria = fgetc(stdin);
+        //jogada_joao = fgetc(stdin);
+
+        fscanf(stdin, "%c %c\n", &jogada_maria, &jogada_joao);
+        printf("%c\n", jogada_maria);
+        printf("%c\n", jogada_joao);
+
+        if(jogada_maria == 't' && jogada_joao == 'p') {
+          maria += 1;
+        }
+        else if(jogada_maria == 'p' && jogada_joao == 'd') {
+          maria += 1;
+        }
+        else if(jogada_maria == 'd' && jogada_joao == 't') {
+          maria += 1;
+        }
+        else if(jogada_maria == jogada_joao) {
+          continue;
+        }
+        else {
+          joao += 1;
+        }
+      }
+
+      if(maria > joao) {
+        printf("Maria\n");
+      }
+      else if(maria == joao) {
+        printf("EMPATE\n");
+      }
+      else {
+        printf("Joao\n");
+      }
+
+      break;
+    }
 
     // Exercicio 8
     case 8: {}
