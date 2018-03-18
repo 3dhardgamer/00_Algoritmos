@@ -14,12 +14,18 @@ int fibonacci(int num) {
 }
 
 
-int main() {
+int main(int argc, char *argv[]) {
   int exercicio;
 
   printf("Selecione o numero do exercicio (de 0 - 9): ");
-  scanf("%d", &exercicio);
-//  printf("Exercicio numero: %d", exercicio);
+  fscanf(stdin, "%d", &exercicio);
+
+  if (exercicio == 0) {
+    printf("Hello World!\n");
+  }
+  else if (exercicio == 1) {
+  
+  }
 
   switch(exercicio) {
     // Exercicio 0
