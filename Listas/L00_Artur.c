@@ -15,39 +15,85 @@ int fibonacci(int num) {
 }
 
 
-int main(int argc, char *argv[]) {
+int main() {
   char linebuffer[4096];
 
   while(fgets(linebuffer, sizeof(linebuffer), stdin)) {
+    printf("%c\n", linebuffer[0]);
     // Exercicio 0
-    if (linebuffer[0] == 0) {
+    if (linebuffer[0] == '0') {
       printf("Hello World!\n");
     }
     // Exercicio 1
-    else if (linebuffer[0] == 1) {
-      int a;
-      int b;
+    else if (linebuffer[0] == '1') {
+      int a[2];
+      int i = 0;
       while(fgets(linebuffer, sizeof(linebuffer), stdin)) {
-        a = atoi(linebuffer);
-        b = atoi(linebuffer);
+        a[i] = atoi(linebuffer);
+        i++;
       }
 
-      for (int i = a; i <= b; i++) {
+      for (int i = a[0]; i <= a[1]; i++) {
         printf("%i\n", i);
       }
     }
     // Exercicio 2
-    else if (linebuffer[0] == 2) {
-      int total_votos;
-      fscanf(stdin, "%i", &total_votos);
-
+    else if (linebuffer[0] == '2') {
+      // Pega a proxima linha do buffer
+      fgets(linebuffer, sizeof(linebuffer), stdin);
+      int total_votos = atoi(linebuffer);
+      printf("%i\n", total_votos);
       int candidatos[4] = {0, 0, 0, 0};
-      int voto, vencedor;
+      int vencedor = 0;
 
       for (int n = 1; n <= total_votos; n++) {
-        fscanf(stdin, "%i", &voto);
+        fgets(linebuffer, sizeof(linebuffer), stdin);
+        if (linebuffer[0] == '0') {
+          candidatos[0] += 1;
+        }
+        else if (linebuffer[0] == '1') {
+          candidatos[1] += 1;
+        }
+        else if (linebuffer[0] == '2') {
+          candidatos[2] += 1;
+        }
+        else if (linebuffer[0] == '3') {
+          candidatos[3] += 1;
+        }
+        else {
+          printf("Candidato inválido!\n");
+          continue;
+        }
       }
+
+      for (int c = 1; c <= 3; c++) {
+        if(candidatos[c] > candidatos[vencedor]) {
+          vencedor = c;
+        }
+        else if (candidatos[c] == candidatos[vencedor]) {
+          vencedor = 0;
+          candidatos[vencedor] = candidatos [c];
+        }
+        else {
+          continue;
+        }
+      }
+      printf("%i\n", vencedor);
     }
+    // Exercicio 3
+    else if (linebuffer[0] == '3') {}
+    // Exercicio 4
+    else if (linebuffer[0] == '4') {}
+    // Exercicio 5
+    else if (linebuffer[0] == '5') {}
+    // Exercicio 6
+    else if (linebuffer[0] == '6') {}
+    // Exercicio 7
+    else if (linebuffer[0] == '7') {}
+    // Exercicio 8
+    else if (linebuffer[0] == '8') {}
+    // Exercicio 9
+    else if (linebuffer[0] == '9') {}
   }
 
 
@@ -59,71 +105,7 @@ int main(int argc, char *argv[]) {
 
 
   switch(exercicio) {
-    // Exercicio 0
-    case 0:
-      printf("Hello World!\n");
-      break;
-
-    // Exercicio 1
-    case 1: {
-      int a;
-      int b;
-
-      scanf("%i", &a);
-      scanf("%i", &b);
-
-      for(int i = a; i <= b; i++){
-        printf("%i\n", i);
-      }
-      break;
-    }
-    // Exercicio 2
-    case 2: {
-      int total_votos;
-      scanf("%i", &total_votos);
-
-      int candidatos[4] = {0, 0, 0, 0};
-      int voto, vencedor;
-
-      for(int n = 1; n <= total_votos; n++) {
-        scanf("%i", &voto);
-
-        if(voto == 0) {
-          candidatos[0] += 1;
-        } else if(voto == 1){
-          candidatos[1] += 1;
-        }
-        else if(voto == 2){
-          candidatos[2] += 1;
-        }
-        else if(voto == 3){
-          candidatos[3] += 1;
-        }
-        else {
-          printf("Candidato invalido!\n");
-          continue;
-        }
-      }
-
-      vencedor = 0;
-      for(int c = 1; c <= 3; c++) {
-        printf("%i %i\n", candidatos[vencedor], candidatos[c]);
-        if(candidatos[c] > candidatos[vencedor]) {
-          vencedor = c;
-        }
-        else if(candidatos[c] == candidatos[vencedor]) {
-          vencedor = 0;
-          candidatos[vencedor] = candidatos[c];
-        }
-        else {
-          continue;
-        }
-      }
-
-      printf("%i\n", vencedor);
-      break;
-    }
-
+      
     // Exercicio 3
     case 3: {
       int n;
