@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 
 int fibonacci(int num) {
@@ -15,17 +16,47 @@ int fibonacci(int num) {
 
 
 int main(int argc, char *argv[]) {
+  char linebuffer[4096];
+
+  while(fgets(linebuffer, sizeof(linebuffer), stdin)) {
+    // Exercicio 0
+    if (linebuffer[0] == 0) {
+      printf("Hello World!\n");
+    }
+    // Exercicio 1
+    else if (linebuffer[0] == 1) {
+      int a;
+      int b;
+      while(fgets(linebuffer, sizeof(linebuffer), stdin)) {
+        a = atoi(linebuffer);
+        b = atoi(linebuffer);
+      }
+
+      for (int i = a; i <= b; i++) {
+        printf("%i\n", i);
+      }
+    }
+    // Exercicio 2
+    else if (linebuffer[0] == 2) {
+      int total_votos;
+      fscanf(stdin, "%i", &total_votos);
+
+      int candidatos[4] = {0, 0, 0, 0};
+      int voto, vencedor;
+
+      for (int n = 1; n <= total_votos; n++) {
+        fscanf(stdin, "%i", &voto);
+      }
+    }
+  }
+
+
+// Versão antiga
   int exercicio;
 
   printf("Selecione o numero do exercicio (de 0 - 9): ");
-  fscanf(stdin, "%d", &exercicio);
+  fscanf(stdin, "%i", &exercicio);
 
-  if (exercicio == 0) {
-    printf("Hello World!\n");
-  }
-  else if (exercicio == 1) {
-  
-  }
 
   switch(exercicio) {
     // Exercicio 0
@@ -38,24 +69,24 @@ int main(int argc, char *argv[]) {
       int a;
       int b;
 
-      scanf("%d", &a);
-      scanf("%d", &b);
+      scanf("%i", &a);
+      scanf("%i", &b);
 
       for(int i = a; i <= b; i++){
-        printf("%d\n", i);
+        printf("%i\n", i);
       }
       break;
     }
     // Exercicio 2
     case 2: {
       int total_votos;
-      scanf("%d", &total_votos);
+      scanf("%i", &total_votos);
 
       int candidatos[4] = {0, 0, 0, 0};
       int voto, vencedor;
 
       for(int n = 1; n <= total_votos; n++) {
-        scanf("%d", &voto);
+        scanf("%i", &voto);
 
         if(voto == 0) {
           candidatos[0] += 1;
@@ -76,7 +107,7 @@ int main(int argc, char *argv[]) {
 
       vencedor = 0;
       for(int c = 1; c <= 3; c++) {
-        printf("%d %d\n", candidatos[vencedor], candidatos[c]);
+        printf("%i %i\n", candidatos[vencedor], candidatos[c]);
         if(candidatos[c] > candidatos[vencedor]) {
           vencedor = c;
         }
@@ -89,14 +120,14 @@ int main(int argc, char *argv[]) {
         }
       }
 
-      printf("%d\n", vencedor);
+      printf("%i\n", vencedor);
       break;
     }
 
     // Exercicio 3
     case 3: {
       int n;
-      scanf("%d", &n);
+      scanf("%i", &n);
 
       double vetor[n];
       double soma = 0;
@@ -134,7 +165,7 @@ int main(int argc, char *argv[]) {
     // Exercicio 4
     case 4: {
       int n;
-      scanf("%d", &n);
+      scanf("%i", &n);
 
       float notas[100];
       char alunos[100];
@@ -146,7 +177,7 @@ int main(int argc, char *argv[]) {
        // gets(alunos[i]);
       }
 
-      scanf("%d", &aluno);
+      scanf("%i", &aluno);
       if(notas[aluno] >= 7.0) {
         printf("%s Aprovado\n", &alunos[aluno]);
       }
@@ -157,32 +188,32 @@ int main(int argc, char *argv[]) {
     // Exercicio 5
     case 5: {
       int n;
-      scanf("%d", &n);
+      scanf("%i", &n);
 
       int fatorial = 1;
       for(int i = n; i > 0; i--) {
         fatorial *= i;
       }
 
-      printf("%d\n", fatorial);
+      printf("%i\n", fatorial);
       break;
     }
 
     // Exercicio 6
     case 6: {
       int k;
-      scanf("%d", &k);
+      scanf("%i", &k);
 
       int num_sequencia;
       num_sequencia = fibonacci(k - 1);
-      printf("%d\n", num_sequencia);
+      printf("%i\n", num_sequencia);
       break;
     }
 
     // Exercicio 7
     case 7: {
       int partidas;
-      scanf("%d", &partidas);
+      scanf("%i", &partidas);
 
       int maria = 0;
       int joao = 0;
@@ -190,7 +221,7 @@ int main(int argc, char *argv[]) {
       char jogada_joao;
 
       for(int i = 1; i <= partidas; i++) {
-        printf("Partida %d\n", i);
+        printf("Partida %i\n", i);
 
         //jogada_maria = fgetc(stdin);
         //jogada_joao = fgetc(stdin);
@@ -235,33 +266,33 @@ int main(int argc, char *argv[]) {
       int B;
       int aux;
 
-      scanf("%d", &A);
-      scanf("%d", &B);
+      scanf("%i", &A);
+      scanf("%i", &B);
 
       aux = A;
       A = B;
       B = aux;
 
-      printf("%d %d\n", A, B);
+      printf("%i %i\n", A, B);
       break;
     }
 
     // Exercicio 9
     case 9: {
       int n;
-      scanf("%d", &n);
+      scanf("%i", &n);
 
       int vetor[n];
       for(int i = 0; i < n; i++) {
-        scanf("%d", &vetor[i]);
+        scanf("%i", &vetor[i]);
       }
 
       int aux;
       for(int i = 0; i < n; i++) {
-        printf("%d\n", vetor[i]);
+        printf("%i\n", vetor[i]);
         for(int j = 0; j < n - 1; j++) {
           if(vetor[j] > vetor[j + 1]) {
-            printf("%d", vetor[j]);
+            printf("%i", vetor[j]);
             aux = vetor[j];
             vetor[j] = vetor[j + 1];
             vetor[j + 1] = aux;
@@ -270,7 +301,7 @@ int main(int argc, char *argv[]) {
       }
 
       for(int i = 0; i < n; i++) {
-        printf("%d ", vetor[i]);
+        printf("%i ", vetor[i]);
       }
       printf("\n");
 
