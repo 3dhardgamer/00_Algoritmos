@@ -25,7 +25,7 @@ int main() {
   char linebuffer[4096];
 
   while (fgets(linebuffer, sizeof(linebuffer), stdin)) {
-    printf("%c\n", linebuffer[0]);
+    //printf("%c\n", linebuffer[0]);
     // Exercicio 0
     if (linebuffer[0] == '0') {
       printf("Hello World!\n");
