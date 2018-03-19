@@ -3,15 +3,6 @@
 #include <stdlib.h>
 
 
-int fibonacci(int num) {
-  if (num <= 1) {
-    return num;
-  }
-  else {
-    return fibonacci(num - 1) + fibonacci(num - 2);
-  }
-}
-
 void swap(int *num1, int *num2) {
   int aux;
   aux = *num1;
@@ -171,10 +162,15 @@ int main() {
     else if (linebuffer[0] == '6') {
       fgets(linebuffer, sizeof(linebuffer), stdin);
       int k = atoi(linebuffer);
+      long fib[k];
 
-      int num_sequencia;
-      num_sequencia = fibonacci(k);
-      printf("%i\n", num_sequencia);
+      fib[0] = 0;
+      fib[1] = 1;
+
+      for (int i = 2; i <= k; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+      }
+      printf("%ld\n", fib[k]);
     }
 
     // Exercicio 7
