@@ -18,17 +18,18 @@ int fibonacci(int num) {
 int main() {
   char linebuffer[4096];
 
-  while(fgets(linebuffer, sizeof(linebuffer), stdin)) {
+  while (fgets(linebuffer, sizeof(linebuffer), stdin)) {
     printf("%c\n", linebuffer[0]);
     // Exercicio 0
     if (linebuffer[0] == '0') {
       printf("Hello World!\n");
     }
+
     // Exercicio 1
     else if (linebuffer[0] == '1') {
       int a[2];
       int i = 0;
-      while(fgets(linebuffer, sizeof(linebuffer), stdin)) {
+      while (fgets(linebuffer, sizeof(linebuffer), stdin)) {
         a[i] = atoi(linebuffer);
         i++;
       }
@@ -37,6 +38,7 @@ int main() {
         printf("%i\n", i);
       }
     }
+
     // Exercicio 2
     else if (linebuffer[0] == '2') {
       // Pega a proxima linha do buffer
@@ -67,7 +69,7 @@ int main() {
       }
 
       for (int c = 1; c <= 3; c++) {
-        if(candidatos[c] > candidatos[vencedor]) {
+        if (candidatos[c] > candidatos[vencedor]) {
           vencedor = c;
         }
         else if (candidatos[c] == candidatos[vencedor]) {
@@ -80,18 +82,86 @@ int main() {
       }
       printf("%i\n", vencedor);
     }
+
     // Exercicio 3
-    else if (linebuffer[0] == '3') {}
+    else if (linebuffer[0] == '3') {
+      fgets(linebuffer, sizeof(linebuffer), stdin);
+      int n = atoi(linebuffer);
+
+      double vetor[n];
+      double num;
+      double soma = 0;
+      double media = 0;
+      double max = 0;
+      double min = 0;
+      
+      int i = 0;
+      while (fgets(linebuffer, sizeof(linebuffer), stdin)) {
+        num = atof(linebuffer);
+        soma += num;
+
+        if (i == 0) {
+          min = num;
+        }
+
+        if (max < num) {
+          max = num;
+        }
+        if (min > num) {
+          min = num;
+        }
+        i++;
+      }
+
+      media = soma / n;
+
+      printf("%.1lf\n", soma);
+      printf("%.1lf\n", media);
+      printf("%.1lf\n", max);
+      printf("%.1lf\n", min);
+
+    }
+
     // Exercicio 4
-    else if (linebuffer[0] == '4') {}
+    else if (linebuffer[0] == '4') {
+      fgets(linebuffer, sizeof(linebuffer), stdin);
+      int n = atoi(linebuffer);
+      int aluno;
+
+      struct Aluno {
+        float nota;
+        char nome[100];
+        char sobrenome[100];
+      };
+
+      struct Aluno alunos[100];
+
+      for (int i = 0; i < n; i++) {
+        fgets(linebuffer, sizeof(linebuffer), stdin);
+        sscanf(linebuffer, "%f %s %s", &alunos[i].nota, alunos[i].nome, alunos[i].sobrenome);
+      }
+
+      fgets(linebuffer, sizeof(linebuffer), stdin);
+      aluno = atoi(linebuffer);
+
+      if (alunos[aluno - 1].nota >= 7.0) {
+        printf("%s %s Aprovado\n", alunos[aluno - 1].nome, alunos[aluno - 1].sobrenome);
+      }
+
+    }
+
     // Exercicio 5
     else if (linebuffer[0] == '5') {}
+
     // Exercicio 6
     else if (linebuffer[0] == '6') {}
+
     // Exercicio 7
     else if (linebuffer[0] == '7') {}
+
     // Exercicio 8
     else if (linebuffer[0] == '8') {}
+
     // Exercicio 9
     else if (linebuffer[0] == '9') {}
   }
@@ -105,68 +175,6 @@ int main() {
 
 
   switch(exercicio) {
-      
-    // Exercicio 3
-    case 3: {
-      int n;
-      scanf("%i", &n);
-
-      double vetor[n];
-      double soma = 0;
-      double media = 0;
-      double max = 0;
-      double min = 0;
-
-      for(int i = 0; i < n; i++) {
-        scanf("%lf", &vetor[i]);
-      }
-
-      max = vetor[0];
-      min = vetor[0];
-
-      for(int i = 0; i < n; i++) {
-        soma += vetor[i];
-
-        if(max < vetor[i]) {
-          max = vetor[i];
-        }
-
-        if(min > vetor[i]) {
-          min = vetor[i];
-        }
-      }
-      media = soma / n;
-
-      printf("%.1lf\n", soma);
-      printf("%.1lf\n", media);
-      printf("%.1lf\n", max);
-      printf("%.1lf\n", min);
-      break;
-    }
-
-    // Exercicio 4
-    case 4: {
-      int n;
-      scanf("%i", &n);
-
-      float notas[100];
-      char alunos[100];
-      int aluno;
-
-      for(int i = 0; i < n; i++) {
-        scanf("%f", &notas[i]);
-       // scanf("%s", alunos[i]);
-       // gets(alunos[i]);
-      }
-
-      scanf("%i", &aluno);
-      if(notas[aluno] >= 7.0) {
-        printf("%s Aprovado\n", &alunos[aluno]);
-      }
-
-      break;
-    }
-
     // Exercicio 5
     case 5: {
       int n;
