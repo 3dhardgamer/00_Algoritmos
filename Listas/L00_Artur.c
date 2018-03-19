@@ -151,10 +151,28 @@ int main() {
     }
 
     // Exercicio 5
-    else if (linebuffer[0] == '5') {}
+    else if (linebuffer[0] == '5') {
+      fgets(linebuffer, sizeof(linebuffer), stdin);
+      int n = atoi(linebuffer);
+      int fatorial = 1;
+
+      for (int i = n; i > 0; i--) {
+        fatorial *= i;
+      }
+
+      printf("%i\n", fatorial);
+    }
 
     // Exercicio 6
-    else if (linebuffer[0] == '6') {}
+    else if (linebuffer[0] == '6') {
+      fgets(linebuffer, sizeof(linebuffer), stdin);
+      int k = atoi(linebuffer);
+
+      int num_sequencia;
+      num_sequencia = fibonacci(k - 1);
+
+      printf("%i\n", num_sequencia);
+    }
 
     // Exercicio 7
     else if (linebuffer[0] == '7') {}
@@ -175,30 +193,6 @@ int main() {
 
 
   switch(exercicio) {
-    // Exercicio 5
-    case 5: {
-      int n;
-      scanf("%i", &n);
-
-      int fatorial = 1;
-      for(int i = n; i > 0; i--) {
-        fatorial *= i;
-      }
-
-      printf("%i\n", fatorial);
-      break;
-    }
-
-    // Exercicio 6
-    case 6: {
-      int k;
-      scanf("%i", &k);
-
-      int num_sequencia;
-      num_sequencia = fibonacci(k - 1);
-      printf("%i\n", num_sequencia);
-      break;
-    }
 
     // Exercicio 7
     case 7: {
