@@ -4,14 +4,12 @@
 
 
 int fibonacci(int num) {
-  if (num == 0) {
-    return 1;
+  if (num <= 1) {
+    return num;
   }
-  if (num == 1) {
-    return 1;
+  else {
+    return fibonacci(num - 1) + fibonacci(num - 2);
   }
-
-  return fibonacci(num - 1) + fibonacci(num - 2);
 }
 
 void swap(int *num1, int *num2) {
@@ -50,7 +48,7 @@ int main() {
       // Pega a proxima linha do buffer
       fgets(linebuffer, sizeof(linebuffer), stdin);
       int total_votos = atoi(linebuffer);
-      printf("%i\n", total_votos);
+      //printf("%i\n", total_votos);
       int candidatos[4] = {0, 0, 0, 0};
       int vencedor = 0;
 
@@ -175,8 +173,7 @@ int main() {
       int k = atoi(linebuffer);
 
       int num_sequencia;
-      num_sequencia = fibonacci(k - 1);
-
+      num_sequencia = fibonacci(k);
       printf("%i\n", num_sequencia);
     }
 
