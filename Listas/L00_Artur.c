@@ -229,7 +229,7 @@ int main() {
     else if (linebuffer[0] == '9') {
       fgets(linebuffer, sizeof(linebuffer), stdin);
       int n = atoi(linebuffer);
-      printf("%i\n", n);
+     // printf("%i\n", n);
       int vetor[n];
       int k = 0;
       char *ptr;
