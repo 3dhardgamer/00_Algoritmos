@@ -14,6 +14,12 @@ int fibonacci(int num) {
   return fibonacci(num - 1) + fibonacci(num - 2);
 }
 
+void swap(int *num1, int *num2) {
+  int aux;
+  aux = *num1;
+  *num1 = *num2;
+  *num2 = aux;
+}
 
 int main() {
   char linebuffer[4096];
@@ -94,7 +100,7 @@ int main() {
       double media = 0;
       double max = 0;
       double min = 0;
-      
+
       int i = 0;
       while (fgets(linebuffer, sizeof(linebuffer), stdin)) {
         num = atof(linebuffer);
@@ -218,105 +224,35 @@ int main() {
     }
 
     // Exercicio 8
-    else if (linebuffer[0] == '8') {}
-
-    // Exercicio 9
-    else if (linebuffer[0] == '9') {}
-  }
-
-
-// Versão antiga
-  int exercicio;
-
-  printf("Selecione o numero do exercicio (de 0 - 9): ");
-  fscanf(stdin, "%i", &exercicio);
-
-
-  switch(exercicio) {
-
-    // Exercicio 7
-    case 7: {
-      int partidas;
-      scanf("%i", &partidas);
-
-      int maria = 0;
-      int joao = 0;
-      char jogada_maria;
-      char jogada_joao;
-
-      for(int i = 1; i <= partidas; i++) {
-        printf("Partida %i\n", i);
-
-        //jogada_maria = fgetc(stdin);
-        //jogada_joao = fgetc(stdin);
-
-        fscanf(stdin, "%c %c\n", &jogada_maria, &jogada_joao);
-        printf("%c\n", jogada_maria);
-        printf("%c\n", jogada_joao);
-
-        if(jogada_maria == 't' && jogada_joao == 'p') {
-          maria += 1;
-        }
-        else if(jogada_maria == 'p' && jogada_joao == 'd') {
-          maria += 1;
-        }
-        else if(jogada_maria == 'd' && jogada_joao == 't') {
-          maria += 1;
-        }
-        else if(jogada_maria == jogada_joao) {
-          continue;
-        }
-        else {
-          joao += 1;
-        }
-      }
-
-      if(maria > joao) {
-        printf("Maria\n");
-      }
-      else if(maria == joao) {
-        printf("EMPATE\n");
-      }
-      else {
-        printf("Joao\n");
-      }
-
-      break;
-    }
-
-    // Exercicio 8
-    case 8: {
-      int A;
-      int B;
-      int aux;
-
-      scanf("%i", &A);
-      scanf("%i", &B);
-
-      aux = A;
-      A = B;
-      B = aux;
-
+    else if (linebuffer[0] == '8') {
+      int A, B;
+      fgets(linebuffer, sizeof(linebuffer), stdin);
+      sscanf(linebuffer, "%i %i", &A, &B);
+      swap(&A, &B);
       printf("%i %i\n", A, B);
-      break;
     }
 
     // Exercicio 9
-    case 9: {
-      int n;
-      scanf("%i", &n);
-
+    else if (linebuffer[0] == '9') {
+      fgets(linebuffer, sizeof(linebuffer), stdin);
+      int n = atoi(linebuffer);
+      printf("%i\n", n);
       int vetor[n];
-      for(int i = 0; i < n; i++) {
-        scanf("%i", &vetor[i]);
+      int k = 0;
+      char *ptr;
+
+      fgets(linebuffer, sizeof(linebuffer), stdin);
+      ptr = strtok(linebuffer, " ");
+      while (ptr) {
+        vetor[k] = strtol(ptr, NULL, 10);
+        k++;
+        ptr = strtok(NULL, " ");
       }
 
       int aux;
-      for(int i = 0; i < n; i++) {
-        printf("%i\n", vetor[i]);
-        for(int j = 0; j < n - 1; j++) {
-          if(vetor[j] > vetor[j + 1]) {
-            printf("%i", vetor[j]);
+      for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n - 1; j++) {
+          if (vetor[j] > vetor[j + 1]) {
             aux = vetor[j];
             vetor[j] = vetor[j + 1];
             vetor[j + 1] = aux;
@@ -324,17 +260,13 @@ int main() {
         }
       }
 
-      for(int i = 0; i < n; i++) {
+      for (int i = 0; i < n; i++) {
         printf("%i ", vetor[i]);
       }
       printf("\n");
-
     }
-
-    default:
-      printf("Opcao invalida, escolha um exercicio entre 0 - 9, por favor!\n");
-
   }
 
   return 0;
 }
+
