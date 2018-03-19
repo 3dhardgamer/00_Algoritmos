@@ -175,7 +175,47 @@ int main() {
     }
 
     // Exercicio 7
-    else if (linebuffer[0] == '7') {}
+    else if (linebuffer[0] == '7') {
+      fgets(linebuffer, sizeof(linebuffer), stdin);
+      int partidas = atoi(linebuffer);
+
+      // jogadas[0] = jogada da maria
+      // jogadas[1] = jogada do joao
+      char jogadas[2];
+      int maria = 0;
+      int joao = 0;
+
+      for (int i = 0; i < partidas; i++) {
+        fgets(linebuffer, sizeof(linebuffer), stdin);
+        sscanf(linebuffer, "%c %c", &jogadas[0], &jogadas[1]);
+
+        if (jogadas[0] == 't' && jogadas[1] == 'p') {
+          maria += 1;
+        }
+        else if (jogadas[0] == 'p' && jogadas[1] == 'd') {
+          maria += 1;
+        }
+        else if (jogadas[0] == 'd' && jogadas[1] == 't') {
+          maria += 1;
+        }
+        else if (jogadas[0] == jogadas[1]) {
+          continue;
+        }
+        else {
+          joao += 1;
+        }
+      }
+
+      if (maria > joao) {
+        printf("Maria\n");
+      }
+      else if (maria == joao) {
+        printf("EMPATE\n");
+      }
+      else {
+        printf("Joao\n");
+      }
+    }
 
     // Exercicio 8
     else if (linebuffer[0] == '8') {}
