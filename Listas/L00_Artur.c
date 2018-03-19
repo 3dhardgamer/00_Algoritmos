@@ -16,12 +16,12 @@ int main() {
   while (fgets(linebuffer, sizeof(linebuffer), stdin)) {
     //printf("%c\n", linebuffer[0]);
     // Exercicio 0
-    if (linebuffer[0] == '0') {
+    if (linebuffer[1] == '0') {
       printf("Hello World!\n");
     }
 
     // Exercicio 1
-    else if (linebuffer[0] == '1') {
+    else if (linebuffer[1] == '1') {
       int a[2];
       int i = 0;
       while (fgets(linebuffer, sizeof(linebuffer), stdin)) {
@@ -35,13 +35,14 @@ int main() {
     }
 
     // Exercicio 2
-    else if (linebuffer[0] == '2') {
+    else if (linebuffer[1] == '2') {
       // Pega a proxima linha do buffer
       fgets(linebuffer, sizeof(linebuffer), stdin);
       int total_votos = atoi(linebuffer);
       //printf("%i\n", total_votos);
       int candidatos[4] = {0, 0, 0, 0};
       int vencedor = 0;
+      int max = candidatos[0];
 
       for (int n = 1; n <= total_votos; n++) {
         fgets(linebuffer, sizeof(linebuffer), stdin);
@@ -63,23 +64,29 @@ int main() {
         }
       }
 
-      for (int c = 1; c <= 3; c++) {
-        if (candidatos[c] > candidatos[vencedor]) {
-          vencedor = c;
-        }
-        else if (candidatos[c] == candidatos[vencedor]) {
-          vencedor = 0;
-          candidatos[vencedor] = candidatos [c];
-        }
-        else {
-          continue;
+      for (int i = 1; i < 4; i++) {
+        if (candidatos[i] > max) {
+          max = (int)candidatos[i];
+          vencedor = i;
         }
       }
+//      for (int c = 1; c <= 3; c++) {
+//        if (candidatos[c] > candidatos[vencedor]) {
+//          vencedor = c;
+//        }
+//        else if (candidatos[c] == candidatos[vencedor]) {
+//          vencedor = 0;
+//          candidatos[vencedor] = candidatos [c];
+//        }
+//        else {
+//          continue;
+//        }
+//      }
       printf("%i\n", vencedor);
     }
 
     // Exercicio 3
-    else if (linebuffer[0] == '3') {
+    else if (linebuffer[1] == '3') {
       fgets(linebuffer, sizeof(linebuffer), stdin);
       int n = atoi(linebuffer);
 
@@ -118,7 +125,7 @@ int main() {
     }
 
     // Exercicio 4
-    else if (linebuffer[0] == '4') {
+    else if (linebuffer[1] == '4') {
       fgets(linebuffer, sizeof(linebuffer), stdin);
       int n = atoi(linebuffer);
       int aluno;
@@ -142,11 +149,14 @@ int main() {
       if (alunos[aluno - 1].nota >= 7.0) {
         printf("%s %s Aprovado\n", alunos[aluno - 1].nome, alunos[aluno - 1].sobrenome);
       }
+      else {
+        printf("%s %s Reprovado\n", alunos[aluno - 1].nome, alunos[aluno - 1].sobrenome);
+      }
 
     }
 
     // Exercicio 5
-    else if (linebuffer[0] == '5') {
+    else if (linebuffer[1] == '5') {
       fgets(linebuffer, sizeof(linebuffer), stdin);
       int n = atoi(linebuffer);
       int fatorial = 1;
@@ -159,7 +169,7 @@ int main() {
     }
 
     // Exercicio 6
-    else if (linebuffer[0] == '6') {
+    else if (linebuffer[1] == '6') {
       fgets(linebuffer, sizeof(linebuffer), stdin);
       int k = atoi(linebuffer);
       long fib[k];
@@ -174,7 +184,7 @@ int main() {
     }
 
     // Exercicio 7
-    else if (linebuffer[0] == '7') {
+    else if (linebuffer[1] == '7') {
       fgets(linebuffer, sizeof(linebuffer), stdin);
       int partidas = atoi(linebuffer);
 
@@ -212,12 +222,12 @@ int main() {
         printf("EMPATE\n");
       }
       else {
-        printf("Joao\n");
+        printf("João\n");
       }
     }
 
     // Exercicio 8
-    else if (linebuffer[0] == '8') {
+    else if (linebuffer[1] == '8') {
       int A, B;
       fgets(linebuffer, sizeof(linebuffer), stdin);
       sscanf(linebuffer, "%i %i", &A, &B);
@@ -226,7 +236,7 @@ int main() {
     }
 
     // Exercicio 9
-    else if (linebuffer[0] == '9') {
+    else if (linebuffer[1] == '9') {
       fgets(linebuffer, sizeof(linebuffer), stdin);
       int n = atoi(linebuffer);
      // printf("%i\n", n);
