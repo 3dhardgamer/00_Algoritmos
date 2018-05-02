@@ -7,7 +7,7 @@ int queue_size(Queue* li);
 int full_queue(Queue* li);
 int empty_queue(Queue* li);
 
-int enqueue(Queue* li);
+int enqueue(Queue* li, int value);
 int dequeue(Queue* li);
 
 int front_queue(Queue* li, int *value);

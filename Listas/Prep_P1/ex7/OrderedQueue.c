@@ -51,5 +51,34 @@ int empty_queue(Queue* qe) {
   return 0;
 }
 
-int enqueue(Queue* qe) {}
+int enqueue(Queue* qe, int value) {
+  if (qe == NULL) return 0;
+  Elem* no = (Elem*) malloc(sizeof(Queue));
+  if (no == NULL) return 0;
+
+  no->value = value;
+  no->next = NULL;
+
+  if (empty_queue(qe)) {
+    no->next = qe->begin;
+    return 1;
+  }
+  else {
+    
+  }
+
+  if (qe->end == NULL)
+    qe->begin = no;
+  else
+    qe->begin->next = no;
+
+  qe->end = no;
+  return 1;
+}
+
+int dequeue(Queue* qe) {
+  if (qe == NULL || empty_queue(qe)) return 0;
+
+  return 1;
+}
 
