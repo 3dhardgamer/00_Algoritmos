@@ -2,34 +2,27 @@
 #include "Stack.h"
 
 struct element {
-  char data;
+  int data;
   struct element* prev;
 };
 
 typedef struct element Elem;
 
 struct stack {
-  int qtd;
-  Elem *menor;
+  int count;
   Elem *top;
+  Elem *min;
 };
 
 Stack* create_stack() {
   Stack* stk = (Stack*) malloc(sizeof(Stack));
   if (stk != NULL) {
-    stk->menor = NULL;
     stk->top = NULL;
-    stk->qtd = 0;
+    stk_min = NULL;
+    stk->count = 0;
   }
   return stk;
 }
-
-/*
-int is_valid(Stack* stk) {
-  if (stk == NULL) return 0;
-  return 1;
-}
-*/
 
 void delete_stack(Stack* stk) {
   if (stk != NULL) {
@@ -45,7 +38,7 @@ void delete_stack(Stack* stk) {
 
 int stack_size(Stack* stk) {
   if (stk == NULL) return 0;
-  return stk->qtd;
+  return stk->count;
 }
 
 int empty_stack(Stack* stk) {
@@ -54,3 +47,47 @@ int empty_stack(Stack* stk) {
   return 0;
 }
 
+int push(Stack* stk, int value) {
+  if (stk == NULL) return 0;
+
+  Elem *no = (Elem*) malloc(sizeof(Elem));
+  Elem *aux = (Elem*) malloc(sizeof(Elem));
+  if (no == NULL && aux == NULL) return 0;
+
+  no->data = value;
+  no->prev = stk->top;
+  stk->top = no;
+
+  if (stk->min != NULL) {
+    if (value < stk->min->data)
+      aux->data = value;
+    else
+      aux->data = stk->min->data;
+  }
+  else
+    aux->data = value;
+
+  aux->prev = stk->min;
+  stk->min = aux;
+  stk->count++;
+  return 1;
+}
+
+int pop(Stack* stk, int *value) {
+  if (stk == NULL || empty_stack(stk)) return 0;
+  Elem* no = stk->top; // Aponta para o top do stack
+  Elem* aux = stk->min; // Aponta para o min do stack
+  stk->top = no->prev; // Atualiza top do stack para seu antecessor
+  stk->min = aux->prev; // Atualiza min para seu antecessor
+  *value = no->data; // Passa como ponteiro o valor do top que foi desempilhado
+  free(no); // Libera o top antigo
+  free(aux); // Libera o min antigo
+  stk->count--;
+  return 1;
+}
+
+int top(Stack* stk, int *value) {
+  if (stk == NULL || empty_stack(stk)) return 0;
+  *value = stk->top->data;
+  return 1;
+}
