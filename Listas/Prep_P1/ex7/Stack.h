@@ -1,3 +1,3 @@
 /* Dynamic (linked) Stack */
 
-typedef struct element* Stack;
+typedef struct stack Stack;
