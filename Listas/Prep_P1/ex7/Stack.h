@@ -1,5 +1,15 @@
 /* Dynamic (linked) Stack */
 
+struct element {
+  int data;
+  struct element *prev;
+};
+
+struct stack {
+  int count;
+  struct element *top;
+};
+
 typedef struct stack Stack;
 
 // Stack creation and deletion functions:
