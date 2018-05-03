@@ -39,6 +39,10 @@ int stack_size(Stack* stk) {
   return stk->count;
 }
 
+int full_stack(Stack* stk) {
+  return 0;
+}
+
 int empty_stack(Stack* stk) {
   if (stk == NULL) return -1;
   if (stk->top == NULL) return 1;
