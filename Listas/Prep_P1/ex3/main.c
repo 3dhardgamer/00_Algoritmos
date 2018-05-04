@@ -134,6 +134,17 @@ void dequeue(int *value) {
   }
 }
 
-
+void front(int *value) {
+  int *aux;
+  while (stk1->topo != NULL) {
+    pop(stk1, &aux);
+    push(stk2, aux);
+  }
+  *value = aux;
+  while (stk2->topo != NULL) {
+    pop(stk2, &aux);
+    push(stk1, aux);
+  }
+}
 
 
