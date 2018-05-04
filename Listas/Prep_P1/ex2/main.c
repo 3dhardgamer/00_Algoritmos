@@ -67,7 +67,7 @@ int queue_size(Queue* qe) {
 }
 
 int empty_queue(Queue* qe) {
-  if (qe == NULL) return 1;
+  if (qe == NULL) return -1;
   if (qe->begin == NULL) return 1;
 
   return 0;
