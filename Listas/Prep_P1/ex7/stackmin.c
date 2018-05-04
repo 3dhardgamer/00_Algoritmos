@@ -19,7 +19,7 @@ void stackmin_delete(stackmin* stkmin) {
 
 void stackmin_push(stackmin* stkmin, int value) {
   stack_push(stkmin->def, value);
-  if (value < stkmin->aux->top->data) 
+  if (stkmin->aux->top == NULL || value < stkmin->aux->top->data)
     stack_push(stkmin->aux, value);
 }
 
