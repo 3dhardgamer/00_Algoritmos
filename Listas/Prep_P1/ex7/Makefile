@@ -1,2 +1,9 @@
-all:
-	gcc -o ex7 main.c stack.c
+PROGS = test_stack
+
+all: $(PROGS)
+
+test_stack:
+	gcc -o test_stack test_stack.c stack.c
+
+clean:
+	rm -f *.o $(PROGS)
