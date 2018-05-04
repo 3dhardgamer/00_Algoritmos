@@ -1,4 +1,4 @@
-PROGS = test_stack
+PROGS = test_stack test_stackmin
 
 all: $(PROGS)
 
