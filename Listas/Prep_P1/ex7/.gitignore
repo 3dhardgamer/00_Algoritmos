@@ -1,0 +1,3 @@
+*.o
+test_stack
+test_stackmin
