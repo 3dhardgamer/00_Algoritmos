@@ -13,5 +13,6 @@ void stackmin_delete(stackmin* stkmin);
 void stackmin_push(stackmin* stkmin, int value);
 int stackmin_pop(stackmin* stkmin);
 int stackmin_top(stackmin* stkmin);
+int stackmin_min(stackmin* stkmin);
 
 #endif

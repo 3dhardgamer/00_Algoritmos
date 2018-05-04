@@ -36,3 +36,6 @@ int stackmin_top(stackmin* stkmin) {
   return stack_top(stkmin->def);
 }
 
+int stackmin_min(stackmin* stkmin) {
+  return stack_top(stkmin->aux);
+}
