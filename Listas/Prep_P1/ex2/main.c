@@ -136,6 +136,7 @@ void pop(int *value) {
   while (qe1->count != 1) {
     dequeue(qe1, &aux);
     enqueue(qe2, aux);
+    qe1->count--;while
   }
   front(qe1, value);
   while (qe2->being != NULL) {
