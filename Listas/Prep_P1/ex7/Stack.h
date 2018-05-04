@@ -1,27 +1,33 @@
-/* Dynamic (linked) Stack */
+/* Dynamic (linked) stack */
 
+#ifndef _STACK_H_
+#define _STACK_H_
+
+typedef struct element elem;
 struct element {
   int data;
   struct element *prev;
 };
 
+typedef struct stack stack;
 struct stack {
   int count;
   struct element *top;
 };
 
-typedef struct stack Stack;
 
-// Stack creation and deletion functions:
-Stack* create_stack();
-void delete_stack(Stack* stk);
+// stack creation and deletion functions:
+stack* stack_create();
+void stack_delete(stack* stk);
 
-// Stack inspection functions:
-int stack_size(Stack* stk);
-int full_stack(Stack* stk);
-int empty_stack(Stack* stk);
+// stack inspection functions:
+int stack_size(stack* stk);
+int stack_full(stack* stk);
+int stack_empty(stack* stk);
 
-// Stack standard functions:
-int push(Stack* stk, int value);
-int pop(Stack* stk, int *value);
-int top(Stack* stk, int *value);
+// stack standard functions:
+void stack_push(stack* stk, int value);
+int stack_pop(stack* stk);
+int stack_top(stack* stk);
+
+#endif
