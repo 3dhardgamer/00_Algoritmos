@@ -103,6 +103,36 @@ void top(Stack* stk, int *value) {
 
 
 // QUEUE Operations...
+void create_queue() {
+  Stack* stk1 = create_stack();
+  Stack* stk2 = create_stack();
+  return;
+}
+
+void delete_queue() {
+  delete_stack(stk1);
+  delete_stack(stk2);
+  return;
+}
+
+void enqueue(int value) {
+  push(stk1, value);
+  return;
+}
+
+void dequeue(int *value) {
+  int *aux;
+  while (stk1->topo != NULL) {
+    pop(stk1, &aux);
+    push(stk2, aux);
+  }
+  pop(stk2, &aux);
+
+  while (stk2->topo ! = NULL) {
+    pop(stk2, &aux);
+    push(stk1, aux);
+  }
+}
 
 
 
