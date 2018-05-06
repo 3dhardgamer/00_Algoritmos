@@ -12,7 +12,8 @@ deque* deque_create() {
 }
 
 void deque_detele(deque* dq) {
-  free(dq);
+  if (dq != NULL)
+    free(dq);
 }
 
 int deque_size(deque* dq) {
