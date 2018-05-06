@@ -1,0 +1,4 @@
+*.o
+test_static
+test_dynamic
+
