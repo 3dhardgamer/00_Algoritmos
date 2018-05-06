@@ -1,5 +1,8 @@
 /* STATIC DEQUE */
 
+#ifndef _STATICDEQUE_H_
+#define _STATICDEQUE_H_
+
 #define MAXN 100
 
 typedef struct deque deque;
@@ -18,3 +21,5 @@ int deque_pop_begin(deque* dq);
 int deque_pop_end(deque* dq);
 int deque_peek_begin(deque* dq);
 int deque_peek_end(deque* dq);
+
+#endif
