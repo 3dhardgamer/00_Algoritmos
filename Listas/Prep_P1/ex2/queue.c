@@ -42,7 +42,7 @@ void queue_enqueue(queue* qe, int value) {
 }
 
 int queue_dequeue(queue* qe) {
-  int value = qe->begin->data;
+  int value = qe->end->data;
 
   elem* no = qe->begin;
   qe->begin = no->next;
@@ -56,5 +56,5 @@ int queue_dequeue(queue* qe) {
 }
 
 int queue_peek(queue* qe) {
-  return qe->begin->data;
+  return qe->end->data;
 }

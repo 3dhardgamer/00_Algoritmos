@@ -34,7 +34,7 @@ int stack_pop(stack* stk) {
   // Desempilha a stk->aux e e empilha na stk->def (devolve os elementos para pilha principal)
   while (stk->aux != NULL)
     queue_enqueue(stk->def, queue_dequeue(stk->aux));
-
+  
   return value;
 }
 
