@@ -6,13 +6,13 @@
 typedef struct element elem;
 struct element {
   int data;
-  struct element *prev;
+  elem *prev;
 };
 
 typedef struct stack stack;
 struct stack {
   int count;
-  struct element *top;
+  elem *top;
 };
 
 
