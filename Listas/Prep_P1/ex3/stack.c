@@ -45,6 +45,6 @@ int stack_pop(stack* stk) {
   return value;
 }
 
-int stack_top(stack* stk) {
+int stack_peek(stack* stk) {
   return stk->top->data;
 }
