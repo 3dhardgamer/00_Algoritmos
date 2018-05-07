@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdlib.h>
 #include "stack.h"
 
 stack* stack_create() {
@@ -32,9 +32,9 @@ int stack_pop(stack* stk) {
   // value recebe o valor do elemento que está mais baixo na pilha
   value = queue_dequeue(stk->def);
   // Desempilha a stk->aux e e empilha na stk->def (devolve os elementos para pilha principal)
-  while (stk->aux != NULL)
+  while (stk->aux->count > 0)
     queue_enqueue(stk->def, queue_dequeue(stk->aux));
-  
+
   return value;
 }
 

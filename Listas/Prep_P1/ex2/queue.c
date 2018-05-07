@@ -32,17 +32,17 @@ void queue_enqueue(queue* qe, int value) {
   no->data = value;
   no->next = NULL;
 
-  if (qe->begin == NULL)
+  if (qe->end == NULL)
     qe->begin = no;
   else
-    qe->begin->next = no;
+    qe->end->next = no;
 
   qe->end = no;
   qe->count++;
 }
 
 int queue_dequeue(queue* qe) {
-  int value = qe->end->data;
+  int value = qe->begin->data;
 
   elem* no = qe->begin;
   qe->begin = no->next;
@@ -56,5 +56,5 @@ int queue_dequeue(queue* qe) {
 }
 
 int queue_peek(queue* qe) {
-  return qe->end->data;
+  return qe->begin->data;
 }
