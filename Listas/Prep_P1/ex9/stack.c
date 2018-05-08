@@ -15,18 +15,18 @@ int stack_size(stack* stk) {
   return stk->count;
 }
 
-void stack_push(stack* stk, char value) {
+void stack_push(stack* stk, int value) {
   stk->data[stk->count] = value;
   stk->count++;
 }
 
-char stack_pop(stack* stk) {
+int stack_pop(stack* stk) {
   int value = stk->data[stk->count - 1];
   stk->count--;
   return value;
 }
 
-char stack_peek(stack* stk) {
+int stack_peek(stack* stk) {
   return stk->data[stk->count - 1];
 }
 
