@@ -1,32 +1,19 @@
-#include <stdlib.h>
-#include "stack.h"
+#ifndef _STACK_H_
+#define _STACK_H_
 
-stack* stack_create() {
-  stack* stk = malloc(sizeof (stack));
-  stk->count = 0;
-  return stk;
-}
+#define MAXN 10000
 
-void stack_delete(stack* stk) {
-  free(stk);
-}
+typedef struct stack stack;
+struct stack {
+  int count;
+  char data[MAXN];
+};
 
-int stack_size(stack* stk) {
-  return stk->count;
-}
+stack* stack_create();
+void stack_delete(stack* stk);
+int stack_size(stack* stk);
+void stack_push(stack* stk, char value);
+char stack_pop(stack* stk);
+char stack_peek(stack* stk);
 
-void stack_push(stack* stk, char value) {
-  stk->data[stk->count] = value;
-  stk->count++;
-}
-
-char stack_pop(stack* stk) {
-  int value = stk->data[stk->count - 1];
-  stk->count--;
-  return value;
-}
-
-char stack_peek(stack* stk) {
-  return stk->data[stk->count - 1];
-}
-
+#endif
