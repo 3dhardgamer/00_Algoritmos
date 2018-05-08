@@ -15,7 +15,7 @@ int stack_size(stack* stk) {
   return stk->count;
 }
 
-void stack_push(stack* stk, int value) {
+void stack_push(stack* stk, char value) {
   stk->data[stk->count] = value;
   stk->count++;
 }
