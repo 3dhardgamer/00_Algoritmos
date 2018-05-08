@@ -3,7 +3,7 @@ PROGS = main
 all: $(PROGS)
 
 main:
-	gcc -o main main.c stacknew.c queue.c stack.c
+	gcc -o main main.c stack.c
 
 clean:
 	rm -f *.o $(PROGS)

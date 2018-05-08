@@ -1,7 +1,7 @@
 #ifndef _STACK_H_
 #define _STACK_H_
 
-#define MAXN 100
+#define MAXN 100000
 
 typedef struct stack stack;
 struct stack {
