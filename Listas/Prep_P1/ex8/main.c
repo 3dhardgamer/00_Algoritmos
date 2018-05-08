@@ -4,7 +4,7 @@
 
 
 int main() {
-  char exp[] = "((A+B)*(C-D))/((E+F)-G)";
+  char exp[] = "((A+B)*(C-D))";
   rpn_convert(exp);
 
   return 0;

@@ -20,13 +20,13 @@ void stack_push(stack* stk, char value) {
   stk->count++;
 }
 
-int stack_pop(stack* stk) {
+char stack_pop(stack* stk) {
   int value = stk->data[stk->count - 1];
   stk->count--;
   return value;
 }
 
-int stack_peek(stack* stk) {
+char stack_peek(stack* stk) {
   return stk->data[stk->count - 1];
 }
 

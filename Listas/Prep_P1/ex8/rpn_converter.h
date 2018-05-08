@@ -4,7 +4,7 @@
 #include "stack.h"
 
 int is_operand(char ch);
-int precedence(char ch);
+int priority(char ch);
 void rpn_convert(char* exp);
 
 #endif

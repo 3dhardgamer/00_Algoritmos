@@ -13,7 +13,7 @@ stack* stack_create();
 void stack_delete(stack* stk);
 int stack_size(stack* stk);
 void stack_push(stack* stk, char value);
-int stack_pop(stack* stk);
-int stack_peek(stack* stk);
+char stack_pop(stack* stk);
+char stack_peek(stack* stk);
 
 #endif
