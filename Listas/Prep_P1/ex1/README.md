@@ -14,6 +14,8 @@ This type of structure can:
 - dynamic: linked elements, no sequential memory allocation
 
 ## Operation Time Complexity
-- push (beginning or end): $\theta$(1)
-- pop (beginning or end): $\theta$(1)
-- peek (beginning or end): $\theta$(1)
+
+The following time complexity correspond to both static and dynamic implementation:
+- push (beginning or end): theta(1)
+- pop (beginning or end): theta(1)
+- peek (beginning or end): theta(1)
