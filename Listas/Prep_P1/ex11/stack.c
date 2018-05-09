@@ -35,8 +35,8 @@ void stack_push(stack* stk, int value) {
   stk->count++;
 }
 
-int stack_pop(stack* stk) {
-  int value;
+char stack_pop(stack* stk) {
+  char value;
   elem* no = stk->top; // Aponta para o top do stack
   stk->top = no->prev; // Atualiza top do stack para seu antecessor
   value = no->data;
@@ -45,6 +45,6 @@ int stack_pop(stack* stk) {
   return value;
 }
 
-int stack_peek(stack* stk) {
+char stack_peek(stack* stk) {
   return stk->top->data;
 }

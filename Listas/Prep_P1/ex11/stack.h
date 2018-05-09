@@ -25,7 +25,7 @@ int stack_size(stack* stk);
 
 // stack standard functions:
 void stack_push(stack* stk, int value);
-int stack_pop(stack* stk);
-int stack_peek(stack* stk);
+char stack_pop(stack* stk);
+char stack_peek(stack* stk);
 
 #endif
