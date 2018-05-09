@@ -27,7 +27,7 @@ int queue_size(queue* qe) {
   return qe->count;
 }
 
-void queue_enqueue(queue* qe, int value) {
+void queue_enqueue(queue* qe, char value) {
   elem* no = malloc(sizeof (elem));
   no->data = value;
   no->next = NULL;
