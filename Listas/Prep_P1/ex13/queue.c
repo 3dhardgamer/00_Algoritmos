@@ -27,7 +27,7 @@ int queue_size(queue* qe) {
   return qe->count;
 }
 
-void queue_enqueue(queue* qe, char value) {
+void queue_enqueue(queue* qe, int value) {
   elem* no = malloc(sizeof (elem));
   no->data = value;
   no->next = NULL;
@@ -41,7 +41,7 @@ void queue_enqueue(queue* qe, char value) {
   qe->count++;
 }
 
-char queue_dequeue(queue* qe) {
+int queue_dequeue(queue* qe) {
   int value = qe->begin->data;
 
   elem* no = qe->begin;
@@ -55,6 +55,6 @@ char queue_dequeue(queue* qe) {
   return value;
 }
 
-char queue_peek(queue* qe) {
+int queue_peek(queue* qe) {
   return qe->begin->data;
 }

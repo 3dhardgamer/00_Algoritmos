@@ -1,41 +1,37 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include "queue.h"
 
-int check_control(char* linebuffer, int N) {
+void check_control(FILE* arq) {
   queue* qe = queue_create();
+  char entry;
+  int valin, valqe;
+  int N;
+  fscanf(arq, "%d\n", &N);
 
-  char p, t;
-  int res;
+  for (int i = 0; i < N; i++) {
+    fscanf(arq, "%c %d ", &entry, &valin);
 
-  for (int i = 1; i <= N; i++) {
-    p = linebuffer[i];
-    t = linebuffer[i + 1];
+    if (entry == 'E')
+      queue_enqueue(qe, valin);
 
-    if (p == '(') {
-      queue_enqueue(qe, p);
-      queue_enqueue(qe, t);
-    }
-    else if (p == ')') {
-      if (t == queue_peek(qe)) {
-        queue_dequeue(qe);
-        queue_dequeue(qe);
-      }
-      else {
-        return -1;
-      }
+    else {
+      valqe = queue_dequeue(qe);
+      printf("%d %d\n", valqe, valin);
     }
   }
-  res = qe->count;
   queue_delete(qe);
-  queue_delete(qe);
-
-  return res;
 }
 
+
 int main() {
-  char linebuffer[4096];
-  int res;
-  fgets(linebuffer, sizeof(linebuffer), stdin);
-  
+  FILE *arq;
+  arq = fopen("entrada.txt", "r");
+
+  check_control(arq);
+
+  fclose(arq);
+
   return 0;
 }
